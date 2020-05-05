@@ -9,10 +9,16 @@
 // };
 
 // document.addEventListener('DOMContentLoaded', startApp);
+import winston from 'winston';
 
 import app from './app';
 
 const port = 1000;
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console()
+  ]
+});
 
 
-app.listen(port, () => console.log(`Application running on port ${port}`));
+app.listen(port, () => logger.info(`Application running on port ${port}`));
