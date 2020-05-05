@@ -17,7 +17,9 @@
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.js\"",
-    "start": "parcel ./src/index.html"
+    "start": "parcel ./src/index.html",
+    "start:dev": " nodemon --exec babel-node ./src/index.js",
+    "start:prod": " nodemon --exec NODE_ENV=production babel-node ./src/index.js"
   },
   "author": {
     "name": "Build For SDG",
@@ -32,9 +34,21 @@
     "url": "https://github.com/BuildForSDG/js-starter/issues"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.4.0",
     "eslint": "^6.8.0",
