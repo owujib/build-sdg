@@ -10,7 +10,7 @@ module.exports = {
 
   development: {
     database: 'farmhub',
-    username: process.env.DB_NAME,
+    username: process.env.DB_USER,
     password: process.env.DB_PASS,
     host: '127.0.0.1',
     dialect: 'postgres'
@@ -18,7 +18,7 @@ module.exports = {
 
   test: {
     database: 'farmhub_test',
-    username: process.env.DB_NAME,
+    username: process.env.DB_USER,
     password: process.env.DB_PASS,
     host: '127.0.0.1',
     dialect: 'postgres'

@@ -13,7 +13,9 @@
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest",
+    
+    "test": "export NODE_ENV=test && sequelize db:migrate:undo:all  && sequelize db:migrate && jest",
+    "test2": "jest",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.js\"",
@@ -56,7 +58,8 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "jest": "^25.4.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "supertest": "^4.0.2"
   },
   "browserslist": [
     "last 1 Chrome versions"
