@@ -15,6 +15,17 @@ app.use(
     extended: false
   })
 );
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Welcome to FarmHub Api' });
+});
 
+
+app.all('*', (err, req, res, next) => {
+  if (!err) return next();
+  return res.status(400).json({
+    status: 400,
+    error: `Failed to decode param: ${req.url}`
+  });
+});
 
 export default app;
