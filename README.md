@@ -3,7 +3,12 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/039a9f1be0354b56a5b9f428c1348982)](https://app.codacy.com/gh/BuildForSDG/team-010-Product?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/team-010-Product&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
+___
+ ### APP INSTANCE AND API DOCUMENTATION
+ **[![click here](https://staged-team-010-backend.herokuapp.com/)]**
+&nbsp;
 
+___
 ## About
 
 What is this project about. Ok to enrich here or the section above it with an image. 
