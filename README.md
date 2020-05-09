@@ -5,7 +5,7 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 
 ___
  ### APP INSTANCE AND API DOCUMENTATION
-###### **[![click here](https://staged-team-010-backend.herokuapp.com/)]**
+ **[![click here](https://staged-team-010-backend.herokuapp.com/)]**
 &nbsp;
 
 ___
