@@ -20,6 +20,7 @@
     "lint": "eslint \"src/**/*.js\"",
     "start": "babel-node ./src/index.js",
     "start:dev": " nodemon --exec babel-node ./src/index.js",
+    "start:staged": " nodemon --exec NODE_ENV=production babel-node ./src/index.js",
     "start:prod": " nodemon --exec NODE_ENV=production babel-node ./src/index.js"
   },
   "author": {
