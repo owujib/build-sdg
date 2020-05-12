@@ -23,8 +23,7 @@
     "lint": "eslint \"src/**/*.js\"",
     "start": "node ./build/index.js",
     "start:dev": "npm run build && nodemon ./build/index.js",
-    "serve": "node ./build/index.js",
-    "heroku-postbuild": "npm install"
+    "serve": "node ./build/index.js"
   },
   "author": {
     "name": "Build For SDG",
