@@ -1,0 +1,33 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - node
+
+env:
+ global:
+    - export COVERALLS_REPO_TOKEN=RWqmqUaQfZ888bV68WpvhREH0L27uOgaS
+    - export NODE_ENV=test
+    - export TEST_DB_DATABASE=uzqwdhvn
+    - export TEST_DB_USER=uzqwdhvn
+    - export TEST_DB_PASSWORD=N_xf47Cco8WWtXzh887OSg2sOMQ5RdR_
+    - export TEST_DB_HOST=drona.db.elephantsql.com
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm config set spin false
+  - npm install -g standard
+
+before_script:
+  - npx sequelize-cli db:migrate:undo
+  - npx sequelize-cli db:migrate
+
+script:
+  - npm test
+
+after_success:
+- npm run coveralls

@@ -23,9 +23,9 @@ app.use(_express.default.json());
 app.use(_express.default.urlencoded({
   extended: false
 }));
-app.use(_express.default.static('./src/docs'));
+app.use(_express.default.static('./docs'));
 app.get('/', (req, res) => {
-  res.sendFile(_path.default.resolve('./src/docs/index.html'));
+  res.sendFile(_path.default.resolve('./docs/index.html'));
 });
 app.all('*', (err, req, res, next) => {
   if (!err) return next();

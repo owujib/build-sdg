@@ -13,8 +13,8 @@
         "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
       }
     },
-    "host": "petstore.swagger.io",
-    "basePath": "/v2",
+    "host": "https://staged-team-010-backend.herokuapp.com/",
+    "basePath": "api/v1",
     "tags": [
       {
         "name": "pet",

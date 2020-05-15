@@ -7,23 +7,38 @@
     "boilerplate"
   ],
   "private": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "directories": {
-    "test": "__tests__"
+  "main": "build/index.js",
+  "jest": {
+    "automock": false,
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom":[
+       "**/src/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "build/",
+      "coverage/",
+      "node_modules/",
+      "src/config/",
+      "src/seeders/",
+      "src/migrations/",
+      "src/models",
+      "docs/"
+    ]
   },
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "test": "export NODE_ENV=test && sequelize db:migrate:undo:all  && sequelize db:migrate && jest",
+    "test": "export NODE_ENV=test && sequelize db:migrate:undo:all  && sequelize db:migrate && jest --coverage",
     "test2": "jest",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.js\"",
     "start": "node ./build/index.js",
     "start:dev": "npm run build && nodemon ./build/index.js",
-    "serve": "node ./build/index.js"
+    "serve": "node ./build/index.js",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "author": {
     "name": "Build For SDG",
@@ -49,20 +64,23 @@
     "pg": "^8.0.3",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.7",
+    "sequelize-test-helpers": "^1.2.2",
     "winston": "^3.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "babel-eslint": "^8.2.6",
-    "@babel/node": "^7.8.7",
     "babel-jest": "^25.4.0",
+    "coveralls": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "jest": "^25.4.0",
+    "nyc": "^15.0.1",
     "parcel-bundler": "^1.12.4",
     "supertest": "^4.0.2"
   },

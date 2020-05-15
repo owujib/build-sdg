@@ -14,9 +14,8 @@ describe('app module', () => {
 
   it('It should respond the GET method', async () => {
     const response = await request(app).get('/');
-    const { body, statusCode } = response;
+    const { statusCode } = response;
     expect(statusCode).toBe(200);
-    expect(body.message).toBe('Welcome to FarmHub Api');
   });
 });
 

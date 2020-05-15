@@ -8,17 +8,17 @@ module.exports = {
   //   use_env_variable: 'DATABASE_URL'
   // },
   development: {
-    database: 'farmhub',
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
+    database: process.env.DEV_DB_DATABASE,
+    username: process.env.DEV_DB_USER,
+    password: process.env.DEV_DB_PASSWORD,
     host: '127.0.0.1',
     dialect: 'postgres'
   },
   test: {
-    database: 'farmhub_test',
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    host: '127.0.0.1',
+    database: process.env.TEST_DB_DATABASE,
+    username: process.env.TEST_DB_USER,
+    password: process.env.TEST_DB_PASSWORD,
+    host: process.env.TEST_DB_HOST,
     dialect: 'postgres'
   },
   production: {
