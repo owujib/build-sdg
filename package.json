@@ -30,7 +30,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "test": "npx sequelize db:migrate:undo:all  && npx sequelize db:migrate && jest --coverage",
+    "test": "npx sequelize-cli db:migrate:undo  && npx sequelize-cli db:migrate:undo && jest --coverage",
     "test2": "jest",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
