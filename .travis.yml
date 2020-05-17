@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - node
+  - "10"
 
 env:
  global:
@@ -27,7 +27,7 @@ before_script:
   - npx sequelize-cli db:migrate
 
 script:
-  - npm run coveralls
+  - npm run build
 
 after_success:
 - npm run coveralls
