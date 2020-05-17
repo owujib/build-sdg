@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //   header.textContent = programName;
 // };
 // document.addEventListener('DOMContentLoaded', startApp);
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const logger = _winston.default.createLogger({
   transports: [new _winston.default.transports.Console()]
