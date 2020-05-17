@@ -27,7 +27,7 @@ before_script:
   - npx sequelize-cli db:migrate
 
 script:
-  - npm run build
+  - npm run coveralls
 
 after_success:
 - npm run coveralls
