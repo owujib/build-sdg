@@ -39,7 +39,7 @@
     "start": "node ./build/index.js",
     "start:dev": "npm run build && nodemon ./build/index.js",
     "serve": "node ./build/index.js",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "NODE_ENV=test jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "author": {
     "name": "Build For SDG",
