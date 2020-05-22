@@ -16,10 +16,10 @@ app.use(
     extended: false
   })
 );
-app.use(express.static('./src/docs'));
+app.use(express.static('./docs'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('./src/docs/index.html'));
+  res.sendFile(path.resolve('./docs/index.html'));
 });
 
 
