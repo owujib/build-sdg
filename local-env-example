@@ -1,0 +1,3 @@
+DEV_DB_DATABASE=buildforsdg
+DEV_DB_USER=postgres
+DEV_DB_PASSWORD=postgres
