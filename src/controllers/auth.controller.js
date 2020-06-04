@@ -5,7 +5,7 @@ require('dotenv').config();
 import jwt from 'jsonwebtoken';
 import { registerValidation, loginValidation } from '../utils/validation';
 
-const models = require('../models/index-first');
+const models = require('../models');
 import handleAsync from '../utils/handleAsync';
 import AppError from '../utils/appError';
 import sendEmail from '../utils/email';
@@ -35,9 +35,9 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signup = handleAsync(async (req, res, next) => {
-  //joi validation
-  // const { error } = registerValidation(req.body);
-  // if (error) return res.status(400).json(error);
+  //   joi validation
+  const { error } = registerValidation(req.body);
+  if (error) return res.status(400).json(error);
 
   const newUser = await User.create(req.body);
 
@@ -58,23 +58,23 @@ exports.login = async (req, res, next) => {
     }
 
     // 2) Check if user exists && password is correct
-    const user = await User.findOne({ where: { email } });
-    console.log(user);
+    const user = await User.findOne({ where: { email: email } });
 
     const validPassword = await bcrypt.compare(req.body.password, user.password);
+
     // !(await user.correctPassword(req.body.password, user.password))
+    // console.log(!user || !validPassword);
 
     if (!user) {
-      return next(new AppError('invalid email', 400));
+      console.log(!user || !(await user.correctPassword(req.body.password, user.password)));
+      return next(new AppError('invalid email or password  ', 400));
     }
-    if (!validPassword) {
-      return next(new AppError('invalid password', 400));
-    }
+    console.log(!user || !validPassword);
 
     // 3) If everything ok, send token to client
     createSendToken(user, 200, res);
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    return next(err);
   }
 };
 

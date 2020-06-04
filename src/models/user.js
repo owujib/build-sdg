@@ -1,6 +1,8 @@
 'use strict';
+
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
@@ -49,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
           max: 255
         }
       },
-      passowrdChangedAt: DataTypes.DATE,
+      passwordChangedAt: DataTypes.DATE,
       passwordResetToken: DataTypes.STRING,
       passwordResetExpires: DataTypes.DATE
     },
@@ -66,28 +68,24 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   //hash user password before create
-  User.beforeCreate(async (user, options) => {
+  User.beforeCreate(async (user) => {
     //only run this function if password is was actually modified
     if (!user.changed('password')) return false;
 
     const hashUser = bcrypt.hash(user.password, 12).then((hashedPw) => {
       user.password = hashedPw;
     });
-
-    // user.passwordConfirm = undefined;
 
     return hashUser;
   });
   //hash password after save
-  User.beforeSave(async (user, options) => {
+  User.beforeSave(async (user) => {
     //only run this function if password is was actually modified
     if (!user.changed('password')) return false;
 
     const hashUser = bcrypt.hash(user.password, 12).then((hashedPw) => {
       user.password = hashedPw;
     });
-
-    // user.passwordConfirm = undefined;
 
     return hashUser;
   });

@@ -7,13 +7,13 @@ module.exports = {
     dialect: 'postgres'
   },
 
-  development: {
-    database: process.env.DEV_DB_DATABASE,
-    username: process.env.DEV_DB_USER,
-    password: process.env.DEV_DB_PASSWORD,
-    host: '127.0.0.1',
-    dialect: 'postgres'
-  },
+  // development: {
+  //   database: process.env.DEV_DB_DATABASE,
+  //   username: process.env.DEV_DB_USER,
+  //   password: process.env.DEV_DB_PASSWORD,
+  //   host: '127.0.0.1',
+  //   dialect: 'postgres'
+  // },
 
   test: {
     database: process.env.TEST_DB_DATABASE,

@@ -3,7 +3,9 @@ import Joi from '@hapi/joi';
 //register Validation
 const registerValidation = (data) => {
   const schema = Joi.object({
-    name: Joi.string().required(),
+    firstname: Joi.string().required(),
+    lastname: Joi.string().required(),
+    middlename: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(6).max(100),
     profile_img: Joi.string().required(),
@@ -19,7 +21,7 @@ const registerValidation = (data) => {
 const loginValidation = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).max(100),
+    password: Joi.string().min(6).max(100).required(),
     passwordConfirm: Joi.ref('password')
   });
 
