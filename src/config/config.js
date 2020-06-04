@@ -1,12 +1,11 @@
 require('dotenv').config();
 
-
 module.exports = {
-
   // If using onine database
-  // development: {
-  //   use_env_variable: 'DATABASE_URL'
-  // },
+  development: {
+    url: process.env.DEV_DATABASE_URL,
+    dialect: 'postgres'
+  },
 
   development: {
     database: process.env.DEV_DB_DATABASE,

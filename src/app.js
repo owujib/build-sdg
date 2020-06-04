@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 
+//imported files
+import userRoutes from './routes/user.routes';
 
 const app = express();
 app.use(morgan('dev'));
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve('./docs/index.html'));
 });
 
+app.use('/api/user', userRoutes);
 
 app.all('*', (err, req, res, next) => {
   if (!err) return next();
